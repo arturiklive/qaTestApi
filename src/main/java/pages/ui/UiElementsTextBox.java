@@ -4,8 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.utils.WaitingUtils;
 
-public class UiElements {
-    private final WebDriver driver;
+public class UiElementsTextBox {
     private static final By ELEMENTS_LINK = By.xpath("(//div[@class='card-body']//h5)[1]");
     private static final By TEXTBOX_LINK = By.xpath("(//ul[@class='menu-list']//span)[1]");
     private static final By TEXTBOX_INPUT_FULL_NAME = By.id("userName");
@@ -13,8 +12,10 @@ public class UiElements {
     private static final By TEXTBOX_INPUT_CURRENT_ADDRESS = By.id("currentAddress");
     private static final By TEXTBOX_INPUT_PERMANENT_ADDRESS = By.id("permanentAddress");
     private static final By TEXTBOX_FORM_SUBMIT = By.id("submit");
+    private static final By GET_TEXTBOX_RESULT = By.xpath("//div[@class='border col-md-12 col-sm-12']");
+    private final WebDriver driver;
 
-    public UiElements(WebDriver driver) {
+    public UiElementsTextBox(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -23,7 +24,7 @@ public class UiElements {
         WaitingUtils.waitUntilElem(driver, ELEMENTS_LINK, 20);
     }
 
-    public void goToTextBox () {
+    public void goToTextBox() {
         WaitingUtils.waitUntilElem(driver, ELEMENTS_LINK, 20);
         driver.findElement(ELEMENTS_LINK).click();
 
@@ -52,6 +53,11 @@ public class UiElements {
     public void textBoxFillFormSubmit() {
         WaitingUtils.waitUntilElem(driver, TEXTBOX_INPUT_PERMANENT_ADDRESS, 20);
         driver.findElement(TEXTBOX_FORM_SUBMIT).click();
+    }
+
+    public String getTextBoxResultText() {
+        WaitingUtils.waitUntilElem(driver, GET_TEXTBOX_RESULT, 20);
+        return driver.findElement(GET_TEXTBOX_RESULT).getText();
     }
 
 }

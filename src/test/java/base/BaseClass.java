@@ -16,6 +16,7 @@ public class BaseClass {
         options.addArguments("--disable-notifications");
         return new ChromeDriver(options);
     }
+
     @BeforeClass
     public void setUpDriver() {
         driver = getDriver();
