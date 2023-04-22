@@ -34,7 +34,7 @@ public class UiThreadQaAllTest extends BaseClass {
     public void testWidgetsProgressBar() throws InterruptedException {
         UiWidgetsProgressBar uiWidgetsProgressBar = new UiWidgetsProgressBar(driver);
         uiWidgetsProgressBar.openPage();
-        boolean progressBarStatus = uiWidgetsProgressBar.getProgressBarDone();
-        System.out.println(progressBarStatus);
+        boolean progressBarStatus = uiWidgetsProgressBar.waitForProgressBar();
+        Assert.assertTrue(progressBarStatus, "Progress bar validating is failed");
     }
 }

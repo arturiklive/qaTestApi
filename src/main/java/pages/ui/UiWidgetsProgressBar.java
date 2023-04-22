@@ -8,7 +8,7 @@ public class UiWidgetsProgressBar {
     private static final By WIDGETS_LINK = By.xpath("(//span[@class='group-header'])[4]");
     private static final By PROGRESS_BAR_LINK = By.xpath("(//div[@class='element-list collapse show']//li)[5]");
     private static final By PROGRESS_BAR_START_BUTTON = By.id("startStopButton");
-    private static final By PROGRESS_BAR_POSITION = By.id("progressBar");
+    private static final By PROGRESS_BAR_POSITION = By.xpath("//div[starts-with(@class,'progress-bar bg-')]");
     private final WebDriver driver;
 
     public UiWidgetsProgressBar(WebDriver driver) {
@@ -22,32 +22,18 @@ public class UiWidgetsProgressBar {
         driver.findElement(PROGRESS_BAR_LINK).click();
     }
 
-    public boolean getProgressBarDone() throws InterruptedException {
+    public boolean waitForProgressBar() throws InterruptedException {
         WaitingUtils.waitUntilElem(driver, PROGRESS_BAR_START_BUTTON, 20);
         driver.findElement(PROGRESS_BAR_START_BUTTON).click();
-        Thread.sleep(5000);
 
-        int maxTries = 10;
-        int tries = 0;
-
-        while (true) {
-            if (driver.findElement(PROGRESS_BAR_POSITION).getAttribute("aria-valuenow").equals("100")) {
-                // progress bar заполнен до конца - возвращаем true
+        int counter = 0;
+        while (counter < 10) {
+            if (driver.findElement(PROGRESS_BAR_POSITION).getAttribute("aria-valuenow").equals("100"))
                 return true;
-            }
-            // progress bar еще не заполнен до конца - ждем 1 секунду и проверяем снова
-            Thread.sleep(1000);
-            tries++;
-
-            if (tries == maxTries) {
-                // достигнуто максимальное количество проверок - выходим из цикла и возвращаем false
-                break;
-            }
+            Thread.sleep(5000);
+            counter++;
         }
-
-// progress bar не заполнен до конца за отведенное время - возвращаем false
         return false;
-
     }
 
 
