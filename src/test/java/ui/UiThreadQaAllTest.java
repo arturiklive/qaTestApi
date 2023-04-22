@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ui.UiElementsCheckBox;
 import pages.ui.UiElementsTextBox;
+import pages.ui.UiWidgetsProgressBar;
 
 public class UiThreadQaAllTest extends BaseClass {
     @Test(priority = 1)
@@ -27,5 +28,13 @@ public class UiThreadQaAllTest extends BaseClass {
         Assert.assertTrue(checkedText.contains("react"), "The string does not contain the word - react");
         Assert.assertTrue(checkedText.contains("private"), "The string does not contain the word - private");
         Assert.assertTrue(checkedText.contains("wordFile"), "The string does not contain the word - wordFile");
+    }
+
+    @Test(priority = 3)
+    public void testWidgetsProgressBar() throws InterruptedException {
+        UiWidgetsProgressBar uiWidgetsProgressBar = new UiWidgetsProgressBar(driver);
+        uiWidgetsProgressBar.openPage();
+        boolean progressBarStatus = uiWidgetsProgressBar.getProgressBarDone();
+        System.out.println(progressBarStatus);
     }
 }
