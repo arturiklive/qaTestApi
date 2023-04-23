@@ -1,5 +1,6 @@
 package pages.ui;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.utils.WaitingUtils;
@@ -19,11 +20,12 @@ public class UiElementsTextBox {
         this.driver = driver;
     }
 
+    @Step("Open page")
     public void openPage(String url) {
         driver.get(url);
         WaitingUtils.waitUntilElem(driver, ELEMENTS_LINK, 20);
     }
-
+    @Step("When page opened, click on ELEMENTS links then click on TEXT BOX link")
     public void goToTextBox() {
         WaitingUtils.waitUntilElem(driver, ELEMENTS_LINK, 20);
         driver.findElement(ELEMENTS_LINK).click();
@@ -31,7 +33,7 @@ public class UiElementsTextBox {
         WaitingUtils.waitUntilElem(driver, TEXTBOX_LINK, 20);
         driver.findElement(TEXTBOX_LINK).click();
     }
-
+    @Step("Then fill text form with demo data")
     public void textBoxFillForm(String name, String email, String address) {
         goToTextBox();
 
@@ -49,12 +51,12 @@ public class UiElementsTextBox {
 
         textBoxFillFormSubmit();
     }
-
+    @Step("Then submit filled form")
     public void textBoxFillFormSubmit() {
         WaitingUtils.waitUntilElem(driver, TEXTBOX_INPUT_PERMANENT_ADDRESS, 20);
         driver.findElement(TEXTBOX_FORM_SUBMIT).click();
     }
-
+    @Step("Then get form submitted result")
     public String getTextBoxResultText() {
         WaitingUtils.waitUntilElem(driver, GET_TEXTBOX_RESULT, 20);
         return driver.findElement(GET_TEXTBOX_RESULT).getText();

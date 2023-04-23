@@ -8,15 +8,21 @@ import pages.ui.UiElementsTextBox;
 import pages.ui.UiWidgetsProgressBar;
 
 public class UiThreadQaAllTest extends BaseClass {
-    @Test(priority = 1)
+
+    @Test(priority = 1, description = "dededede")
+
     public void testElementsTextBox() {
         UiElementsTextBox uiElementsTextBox = new UiElementsTextBox(driver);
         uiElementsTextBox.openPage("http://85.192.34.140:8081/");
+
         uiElementsTextBox.textBoxFillForm("Tester", "tester@test.com", "Test Street 5");
         String getTextBoxResult = uiElementsTextBox.getTextBoxResultText();
         Assert.assertTrue(getTextBoxResult.contains("Tester"), "The string does not contain the word - Tester");
-        Assert.assertTrue(getTextBoxResult.contains("tester@test.com"), "The string does not contain the word - tester@test.com");
-        Assert.assertTrue(getTextBoxResult.contains("Test Street 5"), "The string does not contain the word - Test Street 5");
+        Assert.assertTrue(getTextBoxResult.contains("tester@test.com"), "The string does not contain the word -" +
+                " tester@test.com");
+        Assert.assertTrue(getTextBoxResult.contains("Test Street 5"), "The string does not contain the word -" +
+                " Test Street 5");
+
     }
 
     @Test(priority = 2)
