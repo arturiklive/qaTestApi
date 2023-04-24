@@ -1,6 +1,7 @@
 package ui;
 
 import base.BaseClass;
+import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.ui.UiElementsCheckBox;
@@ -10,7 +11,7 @@ import pages.ui.UiWidgetsProgressBar;
 public class UiThreadQaAllTest extends BaseClass {
 
     @Test(priority = 1, description = "dededede")
-
+    @Description("dededede - description")
     public void testElementsTextBox() {
         UiElementsTextBox uiElementsTextBox = new UiElementsTextBox(driver);
         uiElementsTextBox.openPage("http://85.192.34.140:8081/");

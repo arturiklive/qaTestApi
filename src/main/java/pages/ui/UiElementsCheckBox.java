@@ -1,5 +1,6 @@
 package pages.ui;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.utils.WaitingUtils;
@@ -17,11 +18,13 @@ public class UiElementsCheckBox {
         this.driver = driver;
     }
 
+    @Step("Open Check Box page")
     public void openPage() {
         WaitingUtils.waitUntilElem(driver, CHECKBOX_LINK, 20);
         driver.findElement(CHECKBOX_LINK).click();
     }
 
+    @Step("Click on links - PRIVATE, REACT, WORD FILE")
     public void clickCheckBox() {
         WaitingUtils.waitUntilElem(driver, PLUS_BUTTON_LINK, 20);
         driver.findElement(PLUS_BUTTON_LINK).click();
@@ -31,6 +34,7 @@ public class UiElementsCheckBox {
         driver.findElement(WORD_FILE_LINK).click();
     }
 
+    @Step("Check if elements are selected")
     public String getCheckedElements() {
         WaitingUtils.waitUntilElem(driver, GET_CHECKED_ELEMENTS, 20);
         return driver.findElement(GET_CHECKED_ELEMENTS).getText();

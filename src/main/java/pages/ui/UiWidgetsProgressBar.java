@@ -1,5 +1,7 @@
 package pages.ui;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.utils.WaitingUtils;
@@ -15,6 +17,8 @@ public class UiWidgetsProgressBar {
         this.driver = driver;
     }
 
+    @Step("Open Progress Bar page")
+    @Description("Open Progress Bar page - description")
     public void openPage() {
         WaitingUtils.waitUntilElem(driver, WIDGETS_LINK, 20);
         driver.findElement(WIDGETS_LINK).click();
@@ -22,6 +26,7 @@ public class UiWidgetsProgressBar {
         driver.findElement(PROGRESS_BAR_LINK).click();
     }
 
+    @Step("Start Progress Bar and wait until it is 100% loaded")
     public boolean waitForProgressBar() throws InterruptedException {
         WaitingUtils.waitUntilElem(driver, PROGRESS_BAR_START_BUTTON, 20);
         driver.findElement(PROGRESS_BAR_START_BUTTON).click();
