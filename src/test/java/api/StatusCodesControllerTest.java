@@ -19,8 +19,7 @@ public class StatusCodesControllerTest extends BaseClass {
                 extract().
                 asString();
 
-        JSONObject json = new JSONObject(response);
-        System.out.println(json);
+        System.out.println(response);
     }
     @Test(priority = 2, description = "status-codes-controller - api/created")
     public void testStatusCodeControllerCreated() {
@@ -34,8 +33,7 @@ public class StatusCodesControllerTest extends BaseClass {
                 extract().
                 asString();
 
-        JSONObject json = new JSONObject(response);
-        System.out.println(json);
+        System.out.println(response);
     }
     @Test(priority = 3, description = "status-codes-controller - api/forbidden")
     public void testStatusCodeControllerForbidden() {
@@ -49,7 +47,6 @@ public class StatusCodesControllerTest extends BaseClass {
                 extract().
                 asString();
 
-        JSONObject json = new JSONObject(response);
-        System.out.println(json);
+        System.out.println(response);
     }
 }

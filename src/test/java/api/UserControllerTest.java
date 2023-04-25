@@ -2,7 +2,6 @@ package api;
 
 import base.BaseClass;
 import io.restassured.http.ContentType;
-import org.json.JSONObject;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
@@ -93,11 +92,13 @@ public class UserControllerTest extends BaseClass {
     public void testUserControllerDeleteUser() {
         String response = given().
                 log().all().
+                contentType(ContentType.JSON).
+                header("-H", "Authorization:" + userToken).
                 when().
                 delete("http://85.192.34.140:8080/api/user").
                 then().
                 assertThat().
-                statusCode(400).
+                statusCode(401).
                 extract().
                 asString();
 
