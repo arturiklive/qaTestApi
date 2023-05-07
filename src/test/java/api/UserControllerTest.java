@@ -1,12 +1,11 @@
 package api;
 
-import base.BaseClass;
 import io.restassured.http.ContentType;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class UserControllerTest extends BaseClass {
+public class UserControllerTest {
     private String userToken;
 
     @Test(priority = 1, description = "user-controller - POST register")

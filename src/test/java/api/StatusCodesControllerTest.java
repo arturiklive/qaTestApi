@@ -1,12 +1,11 @@
 package api;
 
 import base.BaseClass;
-import org.json.JSONObject;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class StatusCodesControllerTest extends BaseClass {
+public class StatusCodesControllerTest {
     @Test(priority = 1, description = "status-codes-controller - api/bad request")
     public void testStatusCodeControllerBadRequest() {
         String response = given().
