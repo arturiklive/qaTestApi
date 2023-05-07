@@ -22,10 +22,10 @@ public class BasicErrorController {
     public void headErrorTest(String url, int response) {
         given().
                 baseUri(TestVariables.API_BASE_URL).
-                when().
+        when().
                 log().all().
                 head(url).
-                then().assertThat().
+        then().assertThat().
                 log().all().
                 statusCode(response);
     }
@@ -33,10 +33,10 @@ public class BasicErrorController {
     public void postErrorTest(String url, int response) {
         given().
                 baseUri(TestVariables.API_BASE_URL).
-                when().
+        when().
                 log().all().
                 post(url).
-                then().assertThat().
+        then().assertThat().
                 log().all().
                 statusCode(response);
     }
@@ -44,10 +44,10 @@ public class BasicErrorController {
     public void putErrorTest(String url, int response) {
         given().
                 baseUri(TestVariables.API_BASE_URL).
-                when().
+        when().
                 log().all().
                 put(url).
-                then().assertThat().
+        then().assertThat().
                 log().all().
                 statusCode(response);
     }
@@ -55,10 +55,10 @@ public class BasicErrorController {
     public void deleteErrorTest(String url, int response) {
         given().
                 baseUri(TestVariables.API_BASE_URL).
-                when().
+        when().
                 log().all().
                 delete(url).
-                then().assertThat().
+        then().assertThat().
                 log().all().
                 statusCode(response);
     }
@@ -66,10 +66,10 @@ public class BasicErrorController {
     public void optionsErrorTest(String url, int response) {
         given().
                 baseUri(TestVariables.API_BASE_URL).
-                when().
+        when().
                 log().all().
                 options(url).
-                then().assertThat().
+        then().assertThat().
                 log().all().
                 statusCode(response);
     }
@@ -77,10 +77,10 @@ public class BasicErrorController {
     public void patchErrorTest(String url, int response) {
         given().
                 baseUri(TestVariables.API_BASE_URL).
-                when().
+        when().
                 log().all().
                 patch(url).
-                then().assertThat().
+        then().assertThat().
                 log().all().
                 statusCode(response);
     }
